@@ -8,8 +8,12 @@
       <!-- partial -->
       @include('admin.navbar')
         <!-- partial -->
-      {{-- @include('admin.body')   --}}
+      {{-- @include('admin.status') --}}
+      @include('admin.body') 
+
+      @include('admin.footer')
 
       @include('admin.script')
+      
   </body>
 </html>

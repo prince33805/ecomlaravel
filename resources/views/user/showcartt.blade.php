@@ -2,8 +2,16 @@
 <html lang="en">
 
   <head>
+
     <base href="/public">
     @include('user.css')
+    <style>
+      .total_deg{
+        font-size: 20px;
+        padding: 40px;
+      }
+    </style>
+    
   </head>
 
   <body>
@@ -13,7 +21,7 @@
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
-    <header class="">
+    {{-- <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <a class="navbar-brand" href="{{url('redirect')}}"><h2>Sixteen <em>Clothing</em></h2></a>
@@ -27,15 +35,12 @@
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
-              {{-- <li class="nav-item">
-                <a class="nav-link" href="products.html">Our Products</a>
-              </li> --}}
+              <li class="nav-item">
+                <a class="nav-link" href="{{url('redirect')}}#product">Our Products</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{url('aboutus')}}">About Us</a>
               </li>
-              {{-- <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
-              </li> --}}
 
               <li class="nav-item">
               @if (Route::has('login'))
@@ -74,8 +79,8 @@
       @endif
 
 
-    </header>
-
+    </header> --}}
+    @include('user.header')
     <!-- Page Content -->
     <!-- Banner Starts Here -->
     {{-- @include('user.banner') --}}
@@ -86,25 +91,43 @@
       <table class="table table-striped table-dark">
           <tr style="">
               <td style="padding:10px;font-size:20px;">Product Name</td>
+              <td style="padding:10px;font-size:20px;">Price Per Piece</td>
               <td style="padding:10px;font-size:20px;">Quantity</td>
               <td style="padding:10px;font-size:20px;">Price</td>
               <td style="padding:10px;font-size:20px;">Action</td>
           </tr>
 
-          <form action="{{url('order')}}" method="POST">
+          <form action="{{url('confirmorder')}}" method="POST">
+            <?php $totalprice=0 ?>
             @csrf
-            @foreach($cart as $carts)
-            <tr>
-                <td><input type="text" name="productname[]" value="{{$carts->product_title}}" hidden="">{{$carts->product_title}}</td>
-                <td><input type="text" name="quantity[]" value="{{$carts->quantity}}" hidden="">{{$carts->quantity}}</td>
-                <td><input type="text" name="price[]" value="{{$carts->price}}" hidden="">{{$carts->price}}</td>
-                <td><a href="{{url('delete',$carts->id)}}" class="btn btn-danger">Delete</a></td>
-            </tr>
+            @foreach($cart as $cart)
+              <tr>
+                  <td class="align-middle"><input type="text" name="product_title[]" value="{{$cart->product_title}}" hidden="">{{$cart->product_title}}</td>
+                  <td class="align-middle"><input type="text" name="priceperpiece[]" value="{{$cart->priceperpiece}}" hidden="">{{$cart->priceperpiece}}</td>
+                  <td class="align-middle"><input type="text" name="quantity[]" value="{{$cart->quantity}}" hidden="">{{$cart->quantity}}</td>
+                  <td class="align-middle"><input type="text" name="price[]" value="{{$cart->price}}" hidden="">{{$cart->price}}</td>
+                  <td class="align-middle"><a href="{{url('delete',$cart->product_title)}}" class="btn btn-danger">Delete</a></td>
+              </tr>
+              <?php $totalprice=$totalprice + $cart->price ?>
             @endforeach
       </table>
-            @if($count != 0)
-              <button class="btn btn-success">Confirm Order</button>
-            @endif
+            <div class="row">
+               {{-- echo gettype($cart) ?> --}}
+              <?php $totalquantity = $count  ?>
+              <div class="col">
+                <h1 class="total_deg">Total Quantity : {{$totalquantity}}</h1>
+                <input type="text" name="totalquantity" value="{{$totalquantity}}" hidden="">
+              </div>
+              <div class="col">
+                <h1 class="total_deg">Total Price : {{$totalprice}}</h1>
+              <input type="text" name="totalprice" value="{{$totalprice}}" hidden="">
+              </div>
+              <div class="col">
+                @if($count != 0)
+                  <button class="btn btn-success" style="margin-top: 30px">Confirm Order</button>
+                @endif
+              </div>
+            </div>
           </form>
     </div>
 

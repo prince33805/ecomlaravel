@@ -23,6 +23,49 @@
     <script src="/admin/assets/js/settings.js"></script>
     <script src="/admin/assets/js/todolist.js"></script>
     <!-- endinject -->
-    <!-- Custom js for this page -->
+    <!-- Custom js for this page --> 
     <script src="/admin/assets/js/dashboard.js"></script>
+    
+    {{-- <script>
+      const ctx = document.getElementById("myChart").getContext('2d');
+      
+      const myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels:[ echo json_encode($label) ],
+          datasets: [{
+            label: 'food Items',
+            data: ['2','3'],
+            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40",
+            "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00",
+            "#001f3f", "#39CCCC", "#01FF70", "#85144b",
+            "#F012BE", "#3D9970", "#111111", "#AAAAAA"]
+          }]
+        },
+      });
+    </script> --}}
+
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        const cmu = { lat: 18.8047 , lng: 98.9550 };
+        // The map, centered at cmu
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 14,
+          center: cmu,
+        });
+        // The marker, positioned at cmu
+        const marker = new google.maps.Marker({
+          position: cmu,
+          map: map,
+        });
+      }
+      window.initMap = initMap;
+    </script>
+
+    <script async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBotTQcJdyr4M9QPq3vMsBcloMPRKreNAA&callback=initMap">
+    </script>
+
     <!-- End custom js for this page -->

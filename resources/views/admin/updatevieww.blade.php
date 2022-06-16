@@ -14,18 +14,16 @@
         width:200px;
       }
   </style>
-  
   </head>
   <body>
-    @include('admin.sidebar')
-    <!-- partial -->
-    @include('admin.navbar')
-    <!-- partial -->
-    {{-- @include('admin.body')   --}}
-    
-    <div class="container-fluid page-body-wrapper">
-        <div class="container" align="center">
-
+      @include('admin.sidebar')
+      <!-- partial -->
+      @include('admin.navbar')
+        <!-- partial -->
+      {{-- @include('admin.body')   --}}
+      <div class="container-fluid page-body-wrapper" style="padding: 75px 30px;">
+        <div class="container" align="center" >
+      
             @if(session()->has('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
               {{session()->get('message')}}
@@ -41,14 +39,22 @@
                 <input style="color:black;" type="text" name="title" value="{{$data->title}}" required="">
             </div>
             <div style="padding:15px;">
-              <label>Product Category :</label>
-              <select style="color:black;width:220px" name="category" required="">
-                <option value="" selected="">Add a category here</option>
-                @foreach($category as $category)
-                <option value="{{$category->category_name}}">{{$category->category_name}}</option>
+              <label>Supplier :</label>
+              <select style="color:black;width:220px" name="supplier" required="">
+                <option value="" selected="">{{$data->supplier}}</option>
+                @foreach($supplier as $row)
+                  <option value="{{$row->name}}">{{$row->name}}</option>
                 @endforeach
               </select>
-              {{-- <input style="color:black;" type="text" name="description" placeholder="Give" required=""> --}}
+            </div>
+            <div style="padding:15px;">
+              <label>Product Category :</label>
+              <select style="color:black;width:220px" name="category" required="">
+                <option value="" selected="">{{$data->category}}</option>
+                @foreach($category as $category)
+                  <option value="{{$category->category_name}}">{{$category->category_name}}</option>
+                @endforeach
+              </select>
             </div>
             <div style="padding:15px;">
                 <label>Price :</label>
@@ -80,9 +86,8 @@
             </div>
             </form>
         </div>
-    </div> 
+      </div> 
 
-    @include('admin.script')
+      @include('admin.script')
   </body>
 </html>
-

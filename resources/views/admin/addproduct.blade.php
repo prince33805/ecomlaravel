@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
     @include('admin.css')
     <style type="text/css">
         .title{
@@ -19,7 +20,7 @@
     <!-- partial -->
     @include('admin.navbar')
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+    <div class="container-fluid page-body-wrapper" style="padding: 75px 30px;">
         <div class="container" align="center">
 
             @if(session()->has('message'))
@@ -36,6 +37,18 @@
                 <label>Product title :</label>
                 <input style="color:black;" type="text" name="title" placeholder="Give" required="">
             </div>
+            
+            <div style="padding:15px;">
+              <label>Supplier :</label>
+              <select style="color:black;width:220px" name="supplier" required="">
+                <option value="" selected="">Add a supplier here</option>
+                  @foreach($supplier as $row)
+                    <option value="{{$row->name}}">{{$row->name}}</option>
+                  @endforeach
+              </select>
+              {{-- <input style="color:black;" type="text" name="description" placeholder="Give" required=""> --}}
+            </div>
+
             <div style="padding:15px;">
               <label>Product Category :</label>
               <select style="color:black;width:220px" name="category" required="">
@@ -46,6 +59,12 @@
               </select>
               {{-- <input style="color:black;" type="text" name="description" placeholder="Give" required=""> --}}
             </div>
+            
+            <div style="padding:15px;">
+              <label>Buy Price :</label>
+              <input style="color:black;" type="number" name="buy_price" placeholder="Give" required="">
+            </div>
+          
             <div style="padding:15px;">
                 <label>Price :</label>
                 <input style="color:black;" type="number" name="price" placeholder="Give" required="">
@@ -54,6 +73,7 @@
               <label>Discount Price :</label>
               <input style="color:black;" type="number" name="discount_price" placeholder="Give" required="">
             </div>
+
             <div style="padding:15px;">
                 <label>Quantity :</label>
                 <input style="color:black;" type="text" name="quantity" placeholder="Give" required="">

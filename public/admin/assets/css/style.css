@@ -18278,7 +18278,7 @@ div.tagsinput {
     vertical-align: middle;
     font-size: 0.875rem;
     line-height: 1;
-    white-space: nowrap;
+    white-space: normal;
     padding: 0.9375rem; }
     .table th img, .jsgrid .jsgrid-table th img,
     .table td img,
@@ -20666,7 +20666,8 @@ div.tagsinput {
 
 /* Layouts */
 .navbar.fixed-top + .page-body-wrapper {
-  padding-top: 70px; }
+  /* padding-top: 70px; */
+  padding-top: 0px; }
 
 @media (min-width: 992px) {
   .sidebar-icon-only .navbar {

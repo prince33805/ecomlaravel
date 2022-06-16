@@ -1,19 +1,34 @@
+<div id="product"></div>
+
 <div class="latest-products">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
-          <h2>All Products</h2>
-          {{-- <a href="products.html">view all products <i class="fa fa-angle-right"></i></a> --}}
-          
-          <form action="{{url('search')}}" method="get" class="form-inline" style="float: right;padding:20px;">
-            @csrf
-            <input class="form-control" type="search" name="search" placeholder="search">
-            &nbsp;&nbsp;<button class="btn btn-success">Search</button>
-            {{-- <input class="btn btn-outline-success" type="submit" value="search"> --}}
-          </form>
-        
+          <h2>All Products</h2><hr>
         </div>
+        <div class="section-category">
+          <h5>Product by Category :</h5>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+              Category
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              @foreach($category as $category)
+              <a class="dropdown-item" href="{{url('product_category',$category->category_name)}}">{{$category->category_name}}</a>
+              @endforeach
+            </div>
+          </div>
+
+          <div class="form">
+            <form action="{{url('search')}}" method="get" class="form-inline">
+              @csrf
+              <input class="form-control" type="search" name="search" placeholder="search">
+              &nbsp;&nbsp;<button class="btn btn-success">Search</button>
+            </form>
+          </div>
+        </div>
+
       </div>
 
       @foreach($data as $product)

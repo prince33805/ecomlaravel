@@ -1,5 +1,5 @@
 <div class="container-scroller">
-      <div class="row p-0 m-0 proBanner" id="proBanner">
+      {{-- <div class="row p-0 m-0 proBanner" id="proBanner">
         <div class="col-md-12 p-0 m-0">
           <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
             <div class="ps-lg-1">
@@ -16,15 +16,16 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="index.html"><img src="admin/assets/images/logo.svg" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
+          <a href="/">A D M I N</a>
+          {{-- <img src="admin/assets/images/logo.svg" alt="logo" /> --}}
+          {{--<a class="sidebar-brand brand-logo-mini" href="#"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a> --}}
         </div>
         <ul class="nav">
-          <li class="nav-item profile">
+          {{-- <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
@@ -32,8 +33,8 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-                  <span>Gold Member</span>
+                  <h5 class="mb-0 font-weight-normal">Admin's Name </h5>
+                  <span>Admin</span>
                 </div>
               </div>
               <a href="#" id="profile-dropdown" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -72,17 +73,26 @@
                 </a>
               </div>
             </div>
-          </li>
+          </li> --}}
           <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
           </li>
           
           <li class="nav-item menu-items" >
-            <a class="nav-link" href="{{url('redirect')}}">
+            <a class="nav-link" href="{{url('indexAdmin')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('supplier')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-factory"></i>
+              </span>
+              <span class="menu-title">Supplier</span>
             </a>
           </li>
 
@@ -95,7 +105,7 @@
             </a>
           </li>
 
-          <li class="nav-item menu-items">
+          {{-- <li class="nav-item menu-items">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
@@ -107,17 +117,44 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('addproduct')}}">Add Product</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{url('showproduct')}}">Show All Product</a></li>
-                {{-- <li class="nav-item"> <a class="nav-link" href="">\</a></li> --}}
               </ul>
             </div>
+          </li> --}}
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('addproduct')}} ">
+              <span class="menu-icon">
+                <i class="mdi mdi-folder-plus"></i>
+              </span>
+              <span class="menu-title">Add Product</span>
+            </a>
+          </li>
+
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('showproduct')}} ">
+              <span class="menu-icon">
+                <i class="mdi mdi-folder-multiple"></i>
+              </span>
+              <span class="menu-title">Show Product</span>
+            </a>
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('showorder')}}">
+            <a class="nav-link" href="{{url('showorder')}} ">
               <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
+                <i class="mdi mdi-file-multiple"></i>
               </span>
-              <span class="menu-title">Orders</span>
+              <span class="menu-title">Order</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('showuser')}} ">
+              <span class="menu-icon">
+                <i class="mdi mdi-human-greeting"></i>
+              </span>
+              <span class="menu-title">User</span>
             </a>
           </li>
 

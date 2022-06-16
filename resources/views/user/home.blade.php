@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-
+    <base href="/public">
     @include('user.css')
     
   </head>

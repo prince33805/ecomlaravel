@@ -19,7 +19,7 @@
     <!-- partial -->
     @include('admin.navbar')
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+    <div class="container-fluid page-body-wrapper" style="padding: 75px 30px;">
         <div class="container" align="center">
 
             @if(session()->has('message'))
@@ -44,20 +44,18 @@
             <h1 class="title">All Category</h1>
             <table class="table table-dark" style="color:aliceblue;width:1000px"><br>
                 <tr style="background-color:;" align="center">
-                    <td style="padding: 20px;">No</td>
+                    {{-- <td style="padding: 20px;">No</td> --}}
                     <td style="padding: 20px;">ID</td>
-                    <td style="padding: 20px;">Title</td>
-                    {{-- <td style="padding: 20px;">Update</td> --}}
+                    <td style="padding: 20px;">Name</td>
+                    <td style="padding: 20px;">View</td>
                     <td style="padding: 20px;">Delete</td>
                 </tr>
                 @foreach($data as $i=>$data)
                 <tr align="center" style="background-color: ; align-items:center;">
-                    <td>{{$i+1}}</td>
+                    {{-- <td>{{$i+1}}</td> --}}
                     <td>{{$data->id}}</td>
                     <td>{{$data->category_name}}</td>
-                    
-                    {{-- <td><img height="100" width="100" src="/productimage/{{$product->image}}"></td>
-                    <td><a class="btn btn-primary" href="{{url('updateview',$product->id)}}">Update</a></td>--}}
+                    <td><a class="btn btn-warning" href="{{url('/category',$data->id)}}">View</a></td>
                     <td><a class="btn btn-danger" onclick="return confirm('Are You sure?')" href="{{url('deletecategory',$data->id)}}">Delete</a></td> 
                 </tr>
                 @endforeach
