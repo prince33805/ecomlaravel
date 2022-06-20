@@ -465,12 +465,19 @@ header .navbar {
 
 .product-item img {
 	width: 100%;
+	height: 350px;
 	overflow: hidden;
 }
 
 .product-item .down-content h4 {
 	font-size: 17px;
 	color: #1a6692;
+	margin-bottom: 20px;
+}
+
+.product-item .down-content h5 {
+	font-size: 16px;
+	color: #121212;
 	margin-bottom: 20px;
 }
 
@@ -484,6 +491,8 @@ header .navbar {
 
 .product-item .down-content p {
 	margin-bottom: 20px;
+	overflow:hidden;
+	height: 100px;
 }
 
 .product-item .down-content ul li {
@@ -623,12 +632,17 @@ header .navbar {
 /* Footer */
 
 footer {
+	/* position:fixed;
+	height: 100px;
+    width: 100%;
+	margin-top: -100px; */
+	bottom: 0;
 	text-align: center;
 }
 
 footer .inner-content {
 	/* border-top: 1px solid #eee; */
-	margin-top: 60px;
+	margin-top: 45px;
 	padding: 60px 0px;
 }
 

@@ -41,12 +41,12 @@
             <div class="row justify-content-center">
               <div class="col-md-5">
                 <div class="product-item">
-                  <a href="{{url('product_details',$product->id)}}"><img height="300" width="150" src="/productimage/{{$product->image}}" alt=""></a>
+                  <a href="{{url('product_details',$product->id)}}"><img src="/productimage/{{$product->image}}" alt=""></a>
                   <div class="down-content">
                     <a href="{{url('product_details',$product->id)}}"><h4>{{$product->title}}</h4></a>
                     <h6>${{$product->price}}</h6>
-                    <p>Product Category : {{$product->category}}</p> 
-                    <p>Available Quantity : {{$product->quantity}}</p>
+                    <h4>Product Category : {{$product->category}}</h4> 
+                    <h4>Available Quantity : {{$product->quantity}}</h4>
                     <p>Product Details : {{$product->description}}</p>  
     
                     <form action="{{url('addcart',$product->id)}}" method="POST">

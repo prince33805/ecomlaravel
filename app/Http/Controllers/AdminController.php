@@ -26,19 +26,22 @@ class AdminController extends Controller
     public function indexAdmin(){
         $totalorder=Orderheader::all()->count();
         // $data=product::where('title','Like','%'.$search.'%')->get(); not delivered
-        $delivered_order=Order::where('status','=','delivered')->count();
-        $pending_order=Order::where('status','=','not delivered')->count();
+        $delivered_order=Orderheader::where('status','=','delivered')->count();
+        $pending_order=Orderheader::where('status','=','not delivered')->count();
         $week=Carbon::today()->subDays(6);
         $order_week=Orderheader::where('created_at','>',$week)->count();
+        // $orderbestseller=0;
         $orderbestseller = DB::table('orders')
                  ->select(DB::raw('sum(quantity) as sum, product_title'))
                  ->groupBy('product_title')
+                 ->take(5)
                  ->orderByDesc('sum')
                  ->get();
         $orderbestsellerweek = DB::table('orders')
         ->select(DB::raw('sum(quantity) as sum, product_title'))
         ->where('created_at','>',$week)
         ->groupBy('product_title')
+        ->take(5)
         ->orderByDesc('sum')
         ->get();
         $total_product=product::all()->count();

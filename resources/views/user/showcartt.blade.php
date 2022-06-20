@@ -10,6 +10,11 @@
         font-size: 20px;
         padding: 40px;
       }
+      .title{
+          color:black;
+          padding:25px;
+          font-size:25px;
+      }
     </style>
     
   </head>
@@ -87,7 +92,8 @@
     <!-- Banner Ends Here -->
     <!-- ======================= -->
 
-    <div style="padding-top:100px;width:1000px;" class="mx-auto" align="center">
+    <div style="padding-top:100px;width:1000px;min-height: 750px;" class="mx-auto" align="center">
+      <h1 class="title">Cart</h1>
       <table class="table table-striped table-dark">
           <tr style="">
               <td style="padding:10px;font-size:20px;">Product Name</td>

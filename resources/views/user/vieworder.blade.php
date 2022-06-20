@@ -11,6 +11,11 @@
     th{
       background-color: #232323;
     }
+    .title{
+          color:black;
+          padding:25px;
+          font-size:25px;
+      }
     </style>
     
   </head>
@@ -32,8 +37,8 @@
     <!-- ======================= -->
     {{-- @include('user.product') --}}
     
-    <div style="padding-top:100px;width:1000px;" class="mx-auto" align="center">
-      
+    <div style="padding-top:100px;width:1000px;min-height: 750px" class="mx-auto" align="center">
+      <h1 class="title">Order Details</h1>
       @foreach($orderheader as $orderheader)
       {{-- style="background-color: #343a40"  --}}
         <table class="table table-dark">

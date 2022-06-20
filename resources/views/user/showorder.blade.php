@@ -5,6 +5,17 @@
     
     <base href="/public">
     @include('user.css')
+    <style type="text/css">
+      .title{
+          color:black;
+          padding:25px;
+          font-size:25px;
+      }
+      label{
+        display:inline-block;
+        width:200px;
+      }
+  </style>
     
   </head>
 
@@ -25,7 +36,8 @@
     <!-- ======================= -->
     {{-- @include('user.product') --}}
     
-    <div style="padding-top:100px;width:1000px;" class="mx-auto" align="center">
+    <div style="padding-top:100px;width:1000px;min-height: 700px;" class="mx-auto" align="center">
+      <h1 class="title">Orders</h1>
       <table class="table table-striped table-dark">
           <tr style="">
               <td style="padding:10px;font-size:20px;">No</td>
